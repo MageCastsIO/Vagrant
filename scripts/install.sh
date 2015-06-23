@@ -20,8 +20,9 @@ mysql $MYSQLAUTH -e "FLUSH PRIVILEGES;"
 mysql $MYSQLAUTH -e "CREATE DATABASE magento;"
 
 # Install Apache and PHP
-sudo apt-get install -y apache2 php5 php5-mhash php5-mcrypt php5-curl php5-cli php5-mysql php5-gd php5-intl curl git
-
+#php-xsl missing from pakage man
+sudo apt-get install -y apache2 php5 php5-mhash php5-mcrypt php5-curl php5-cli php5-mysql php5-gd php5-intl curl git php5-xsl
+ 
 # Install Composer.
 cd /tmp
 curl -sS https://getcomposer.org/installer | php
