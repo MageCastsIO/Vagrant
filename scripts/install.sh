@@ -36,6 +36,7 @@ xdebug.var_display_max_data = 2048000
 xdebug.var_display_max_depth = 5
 xdebug.remote_enable=1
 xdebug.remote_connect_back = 0
+xdebug.max_nesting_level = 200
 xdebug.remote_host = 192.168.10.1" >> /etc/php5/mods-available/xdebug.ini
 
 # Environment variables from /etc/apache2/apache2.conf
