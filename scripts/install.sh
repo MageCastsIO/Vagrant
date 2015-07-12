@@ -21,13 +21,22 @@ mysql $MYSQLAUTH -e "CREATE DATABASE magento;"
 
 # Install Apache and PHP
 #php-xsl missing from pakage man
-sudo apt-get install -y apache2 php5 php5-mhash php5-mcrypt php5-curl php5-cli php5-mysql php5-gd php5-intl curl git php5-xsl
+sudo apt-get install -y apache2 php5 php5-mhash php5-mcrypt php5-curl php5-cli php5-mysql php5-gd php5-intl curl git php5-xsl php5-xdebug
  
 # Install Composer.
 cd /tmp
 curl -sS https://getcomposer.org/installer | php
 sudo cp composer.phar /usr/local/bin/composer
 sudo chmod +x /usr/local/bin/composer
+
+# Enable xdebug
+echo "[xdebug]
+xdebug.var_display_max_children = 2048
+xdebug.var_display_max_data = 2048000
+xdebug.var_display_max_depth = 5
+xdebug.remote_enable=1
+xdebug.remote_connect_back = 0
+xdebug.remote_host = 192.168.10.1" >> /etc/php5/mods-available/xdebug.ini
 
 # Environment variables from /etc/apache2/apache2.conf
 #export APACHE_RUN_USER=www-data
